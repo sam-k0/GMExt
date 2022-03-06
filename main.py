@@ -13,6 +13,8 @@ OUTPUTFILENAME = os.path.join(HERE, 'output.xml')
 GM8EXFILENAME = os.path.join(HERE, 'extension.gml')
 DEBUG = True
 
+functionsDictList = []
+
 ## program main
 def runmain():
     ## Make fucking xml crap actually readable / convert to json
@@ -26,9 +28,12 @@ def runmain():
     #for line in lines:
     #    print(line)
     initchunk = gm8.getApiInitChunk(lines)
-    gm8.printlisttofile(initchunk)
+    _readFuncs = gm8.handleApiInit(initchunk)    
     
-    
+
+
+    extensionDict['extension']['files']['file']['functions'] = _readFuncs;
+    print(json.dumps(extensionDict, indent=4))
 
     ## RETURN TO MONKE / Unparse the json to xml and write to file
     xmstring = (xmltodict.unparse(extensionDict, pretty=True))

@@ -46,33 +46,32 @@
 			<ProxyFiles></ProxyFiles>
 			<functions>
 				<function>
-					<name>hobbl_com_cb_create</name>
-					<externalName>hobbl_com_cb_create</externalName>
+					<name>'hobbl_com_updown_setpos32'</name>
+					<externalName>'hobbl_com_updown_setpos32'</externalName>
 					<kind>11</kind>
-					<help></help>
-					<returnType>2</returnType>
-					<argCount>7</argCount>
-					<args>
-						<arg>2</arg>
-						<arg>2</arg>
-						<arg>2</arg>
-						<arg>2</arg>
-						<arg>2</arg>
-						<arg>2</arg>
-						<arg>2</arg>
-					</args>
-				</function>
-				<function>
-					<name>amogus_function2</name>
-					<externalName>amogus_function2</externalName>
-					<kind>11</kind>
-					<help></help>
+					<help>sus</help>
 					<returnType>1</returnType>
 					<argCount>2</argCount>
-					<args>
-						<arg>1</arg>
-						<arg>2</arg>
-					</args>
+				</function>
+			</functions>
+			<functions>
+				<function>
+					<name>'hobbl_com_updown_setrange'</name>
+					<externalName>'hobbl_com_updown_setrange'</externalName>
+					<kind>11</kind>
+					<help>sus</help>
+					<returnType>1</returnType>
+					<argCount>3</argCount>
+				</function>
+			</functions>
+			<functions>
+				<function>
+					<name>'hobbl_com_updown_setrange32'</name>
+					<externalName>'hobbl_com_updown_setrange32'</externalName>
+					<kind>11</kind>
+					<help>sus</help>
+					<returnType>1</returnType>
+					<argCount>3</argCount>
 				</function>
 			</functions>
 			<constants>

@@ -27,9 +27,6 @@ def unsusLines(input):
                 break;
     return newlines;
 
-    
-
-
 def getApiInitChunk(inlines):
     END_SECTION_KEYWORD = "#define API_Define_Styles"
     START_SECTION_KEYWORD = "#define API_Init"
@@ -49,6 +46,83 @@ def getApiInitChunk(inlines):
         if(started):
             newlist.append(line);
     return newlist;
+
+def handleApiInit(lines):
+    print(lines)
+    functionsList = []
+
+    for line in lines:
+        step = 0;
+        _dllname = ""
+        _funcname = ""
+        _calltype = ""
+        _retType = ""
+        _numArgs = ""
+        argsTypeList = []
+        finishDict = {}
+        outerDict = {}
+
+        for c in line:
+            if(c == '('): # begin name read
+                step = 1;
+                continue
+            elif(c == ',' and step == 1): # begin func read
+                step = 2
+                continue
+            elif(c == ',' and step == 2): # begin calltype read
+                step = 3
+                continue
+            elif(c == ',' and step == 3): # begin rettype read
+                step = 4
+                continue
+            elif(c == ',' and step == 4): # begin argnum read
+                step = 5
+                continue
+            elif(c == ',' and step == 5): # begin argstype read
+                step = 6
+                continue
+            elif(c == ')' and step == 6):
+                #done
+                finishDict['name'] = _funcname
+                finishDict['externalName'] = _funcname
+                finishDict['kind'] = 11 # TODO: needs research
+                finishDict['help'] = "sus"
+
+                if("ty_real" in _retType):
+                    finishDict['returnType'] = 1
+                else:
+                    finishDict['returnType'] = 2
+
+                finishDict['argCount'] = int(_numArgs)
+                # TODO Add args list
+                # push to dict
+                outerDict['function'] = finishDict
+                functionsList.append(outerDict)
+                 
+
+            ## determine where to write
+            if(step == 1):
+                _dllname += c;
+
+            elif(step == 2):
+                _funcname += c;
+
+            elif(step == 3):
+                _calltype += c;
+
+            elif(step == 4):
+                _retType += c;
+
+            elif(step == 5):
+                _numArgs += c;
+    #ret
+    return functionsList;
+
+
+
+
+                
+
 
 
 def printlisttofile(lines):
