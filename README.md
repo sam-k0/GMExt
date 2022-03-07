@@ -24,6 +24,7 @@ Because:
  ![enter image description here](https://raw.githubusercontent.com/sam-k0/gmext/master/readmeimg/image2.jpg?token=GHSAT0AAAAAABKIPFIX4NDUVZI7ABCLWG4EYRPJOOQ)
  
  Your directory should look like this. (Both files in the root-folder!)
+ - If you are using the .exe version, just move the two files in the same directory as the .exe file
  ## Step 3: Deep Dive
  Open the .gml file and look for the `#define *_Init` part. It is most likely one of the first lines.
  
@@ -32,6 +33,7 @@ Because:
  In this case, it is line 2. Copy that line to your clipboard.
  ## Step 4: Starting the tool
  Now, execute the `main.py` file: `python3 main.py` or `python main.py` in your terminal.
+ **Or, if you use the .exe version, just double click it.**
  - *I like to just open the folder in VS Code and run it from there*
  
 After starting, the tool will request two inputs from you:
