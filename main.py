@@ -14,8 +14,10 @@ EXTENSIONNAME = input("Extension Name: ")
 DLLFILENAME = input("DLL file name (Include the .dll ending!): ")
 INPUTFILENAME = os.path.join(HERE, 'input.xml')
 OUTPUTFILENAME = os.path.join(HERE, 'output\\{name}\\{name}.extension.gmx'.format(name=EXTENSIONNAME))
+YYMANIFESTFILENAME = os.path.join(HERE, 'output\\{name}\\yymanifest.xml'.format(name=EXTENSIONNAME))
 DLLDESTPATH = os.path.join(HERE, 'output\\{name}\\{name}'.format(name=EXTENSIONNAME))
-GM8EXFILENAME = os.path.join(HERE, 'extension.gml')
+GM8EXFILENAME = os.path.join(HERE, EXTENSIONNAME+'.gml')
+OUTPUTDIRECTORY = os.path.join(HERE, 'output\\{name}'.format(name=EXTENSIONNAME))
 DLLFILEPATH = os.path.join(HERE, DLLFILENAME)
 DEBUG = True
 
@@ -63,9 +65,10 @@ def runmain():
     f = open(OUTPUTFILENAME, "w")
     f.write(xmstring);
     f.close();
-    
-    
-
+    # generate zipfile
+    shutil.make_archive(os.path.join(HERE, "output"+os.sep+EXTENSIONNAME), 'zip', OUTPUTDIRECTORY )
+    #rename to GMEZ
+    os.rename(os.path.join(HERE, "output"+os.sep+EXTENSIONNAME+".zip"),os.path.join(HERE, "output"+os.sep+EXTENSIONNAME+".gmez"))
 
     
 

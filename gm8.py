@@ -30,7 +30,8 @@ def unsusLines(input):
 
 def getApiInitChunk(inlines):
     END_SECTION_KEYWORD = "#define API_Define_Styles"
-    START_SECTION_KEYWORD = "#define API_Init"
+    userInp = input("Section start keyword (Including #define ): ")
+    START_SECTION_KEYWORD = userInp #"#define API_Init"
     newlist = []
     started = False;
     for line in inlines:
