@@ -29,7 +29,10 @@ Please make sure to place it in the same directory as this script.""", "Error", 
 
 # copy DLL file to destination folder
 __path = os.path.join(HERE + os.sep + "output", EXTENSIONNAME)
-os.makedirs(os.path.join(__path, EXTENSIONNAME))
+try:
+    os.makedirs(os.path.join(__path, EXTENSIONNAME))
+except:
+    print("[OK] Folder already created")
 shutil.copyfile(DLLFILEPATH, DLLDESTPATH+ os.sep+DLLFILENAME)
 
 
@@ -68,7 +71,10 @@ def runmain():
     # generate zipfile
     shutil.make_archive(os.path.join(HERE, "output"+os.sep+EXTENSIONNAME), 'zip', OUTPUTDIRECTORY )
     #rename to GMEZ
-    os.rename(os.path.join(HERE, "output"+os.sep+EXTENSIONNAME+".zip"),os.path.join(HERE, "output"+os.sep+EXTENSIONNAME+".gmez"))
+    try:
+        os.rename(os.path.join(HERE, "output"+os.sep+EXTENSIONNAME+".zip"),os.path.join(HERE, "output"+os.sep+EXTENSIONNAME+".gmez"))
+    except:
+        print("[ERR] File already exists.")
 
     
 
