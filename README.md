@@ -4,5 +4,52 @@ Convert GM6 to GMS2.3, GMS2, GMS1.4 extensions!
 Although the capacity of this tool is rather limited, it allows for some good use cases on older extensions- why limited?
 Because:
 
+ - The extension has to include a .gml and .dll file
+ - The code is really janky
+ - This tool only exports functions, no macros (yet)
+ 
+ # How to use (Live demo for you)
+##  Step 1: Getting started
+ First, get the extension downloaded and unzipped. I am going to use an extension called GMMovie. 
+ (Download: http://gmc.yoyogames.com/index.php?showtopic=68332, *USE WAYBACK MACHINE TO ACCESS THIS WEBPAGE!*)
+ 
+ ![enter image description here](https://raw.githubusercontent.com/sam-k0/gmext/master/readmeimg/image1.jpg?token=GHSAT0AAAAAABKIPFIWZ6SI7LG5GKUCVYJQYRPJOBQ)
+ 
+ 
+ The folder should include the .dll and .gml file as stated above
+ ## Step 2: Moving over
+ Move these two files over to where you downloaded this tool.
+ 
+ 
+ ![enter image description here](https://raw.githubusercontent.com/sam-k0/gmext/master/readmeimg/image2.jpg?token=GHSAT0AAAAAABKIPFIX4NDUVZI7ABCLWG4EYRPJOOQ)
+ 
+ Your directory should look like this. (Both files in the root-folder!)
+ ## Step 3: Deep Dive
+ Open the .gml file and look for the `#define *_Init` part. It is most likely one of the first lines.
+ 
+ ![enter image description here](https://raw.githubusercontent.com/sam-k0/gmext/master/readmeimg/image3.jpg?token=GHSAT0AAAAAABKIPFIWGJDDGOJXGOYIBAM2YRPJS6Q)
+ 
+ In this case, it is line 2. Copy that line to your clipboard.
+ ## Step 4: Starting the tool
+ Now, execute the `main.py` file: `python3 main.py` or `python main.py` in your terminal.
+ - *I like to just open the folder in VS Code and run it from there*
+ 
+After starting, the tool will request two inputs from you:
+ 
+ ![enter image description here](https://raw.githubusercontent.com/sam-k0/gmext/master/readmeimg/image4.jpg?token=GHSAT0AAAAAABKIPFIXR35SOZ2UBR5PIND2YRPJWUA)
+ 
+ - The `extension name` is the name of the extension, I like to give it the same name as the DLL file, except for the .dll part.
+ - The `DLL file name` is the name of the dll file in your folder. 
+ Press Enter to continue
+ ## Step 5: Final touches
+ Remember how I told you to copy the `#define` thing to clipboard?
+ That comes into play now!
+ The tool will ask you to provide the section start keyword (more like sentence, lol).
+ Paste the **exact** line there. It needs this to know where to start reading.
+ Now if you press Enter, you should see a *.gmez file in the `output` folder!
+ 
+ ![enter image description here](https://raw.githubusercontent.com/sam-k0/gmext/master/readmeimg/image5.jpg?token=GHSAT0AAAAAABKIPFIWCRNNQTBKXMM6ICA4YRPJ23Q)
 
-![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg)
+## Step 6: Import to GMS
+  Congrats! It worked!
+ **You can now simply drag and drop this *gmez file onto the GameMaker Studio window and import it!**
