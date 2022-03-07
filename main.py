@@ -1,17 +1,35 @@
 import string
 from typing import Dict
 import json, xmltodict
-
+import ctypes
 import gm8
-from inputfile import EXTENSIONSTRING
+from inputfile import EXTENSIONSTRING, checkFileExists
 import inputfile as inpf
 import os
+import shutil
 ## OS
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+EXTENSIONNAME = input("Extension Name: ")
+DLLFILENAME = input("DLL file name (Include the .dll ending!): ")
 INPUTFILENAME = os.path.join(HERE, 'input.xml')
-OUTPUTFILENAME = os.path.join(HERE, 'output.xml')
+OUTPUTFILENAME = os.path.join(HERE, 'output\\{name}\\{name}.extension.gmx'.format(name=EXTENSIONNAME))
+DLLDESTPATH = os.path.join(HERE, 'output\\{name}\\{name}'.format(name=EXTENSIONNAME))
 GM8EXFILENAME = os.path.join(HERE, 'extension.gml')
+DLLFILEPATH = os.path.join(HERE, DLLFILENAME)
 DEBUG = True
+
+# check if dll path is valid
+if(checkFileExists(DLLFILEPATH) == False):
+    print(ctypes.windll.user32.MessageBoxW(0, """The DLL file you specified could not be found.\n
+Please make sure to place it in the same directory as this script.""", "Error", 0))
+    exit()
+
+# copy DLL file to destination folder
+__path = os.path.join(HERE + os.sep + "output", EXTENSIONNAME)
+os.makedirs(os.path.join(__path, EXTENSIONNAME))
+shutil.copyfile(DLLFILEPATH, DLLDESTPATH+ os.sep+DLLFILENAME)
+
 
 functionsDictList = []
 
@@ -23,16 +41,21 @@ def runmain():
     extensionDict = json.loads(jstr); ## at this point we have the extension serialized to dict
     ## READ GM8 FILE HERE!
     lines = gm8.readFileToList(GM8EXFILENAME)
-    #lines = ["   sussy baka", "     ", "we are sus!"]
     lines = gm8.unsusLines(lines)
-    #for line in lines:
-    #    print(line)
+
     initchunk = gm8.getApiInitChunk(lines)
     _readFuncs = gm8.handleApiInit(initchunk)    
-    
 
-
-    extensionDict['extension']['files']['file']['functions'] = _readFuncs;
+    # manipulate dict
+    # set the extensions name
+    extensionDict['extension']['name'] = EXTENSIONNAME
+    #set the extension filename
+    extensionDict['extension']['files']['file']['filename'] = DLLFILENAME
+    extensionDict['extension']['files']['file']['origname'] = "extensions\\"+DLLFILENAME
+    #set the description
+    extensionDict['extension']['description'] = "This was auto-generated using GMEX."
+    #set the functions
+    extensionDict['extension']['files']['file']['functions']['function'] = _readFuncs;
     print(json.dumps(extensionDict, indent=4))
 
     ## RETURN TO MONKE / Unparse the json to xml and write to file
