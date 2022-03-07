@@ -7,7 +7,11 @@ Because:
  - The extension has to include a .gml and .dll file
  - The code is really janky
  - This tool only exports functions, no macros (yet)
- 
+# Known bugs
+- Sometimes, the functions get fancy " symbols when you import the extension to GameMaker. Have fun removing them.
+- Above Bug is fixed in script, the binary .exe release is behind. I generally advise to use the .py scripts instead of .exe
+
+
  # How to use (Live demo for you)
 ##  Step 1: Getting started
  First, get the extension downloaded and unzipped. I am going to use an extension called GMMovie. 
@@ -24,6 +28,7 @@ Because:
  ![enter image description here](https://raw.githubusercontent.com/sam-k0/gmext/master/readmeimg/image2.jpg?token=GHSAT0AAAAAABKIPFIX4NDUVZI7ABCLWG4EYRPJOOQ)
  
  Your directory should look like this. (Both files in the root-folder!)
+ - If you are using the .exe version, just move the two files in the same directory as the .exe file
  ## Step 3: Deep Dive
  Open the .gml file and look for the `#define *_Init` part. It is most likely one of the first lines.
  
@@ -32,13 +37,14 @@ Because:
  In this case, it is line 2. Copy that line to your clipboard.
  ## Step 4: Starting the tool
  Now, execute the `main.py` file: `python3 main.py` or `python main.py` in your terminal.
+ **Or, if you use the .exe version, just double click it.**
  - *I like to just open the folder in VS Code and run it from there*
  
 After starting, the tool will request two inputs from you:
  
  ![enter image description here](https://raw.githubusercontent.com/sam-k0/gmext/master/readmeimg/image4.jpg?token=GHSAT0AAAAAABKIPFIXR35SOZ2UBR5PIND2YRPJWUA)
  
- - The `extension name` is the name of the extension, I like to give it the same name as the DLL file, except for the .dll part.
+ - The `extension name` is the name of the .gml file without the .gml.
  - The `DLL file name` is the name of the dll file in your folder. 
  Press Enter to continue
  ## Step 5: Final touches
@@ -52,4 +58,10 @@ After starting, the tool will request two inputs from you:
 
 ## Step 6: Import to GMS
   Congrats! It worked!
- **You can now simply drag and drop this *gmez file onto the GameMaker Studio window and import it!**
+
+Importing to GMS2+
+- Drag and drop the .gmez onto the window.
+
+Importing to GMS1.4
+- For some reason, it doesn't like the generated gmez.
+- Instead, open the .extension.gmx file
