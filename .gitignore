@@ -12,9 +12,11 @@
 *.vsix
 #pyc
 __pycache__/*
+*.pyc
 
 #gml
 *.gml
 *.dll
 *.gmx
 *.gmez
+
