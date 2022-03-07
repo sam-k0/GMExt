@@ -54,4 +54,10 @@ After starting, the tool will request two inputs from you:
 
 ## Step 6: Import to GMS
   Congrats! It worked!
- **You can now simply drag and drop this *gmez file onto the GameMaker Studio window and import it!**
+
+Importing to GMS2+
+- Drag and drop the .gmez onto the window.
+
+Importing to GMS1.4
+- For some reason, it doesn't like the generated gmez.
+- Instead, open the .extension.gmx file
