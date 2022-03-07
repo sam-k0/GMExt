@@ -7,7 +7,9 @@ Because:
  - The extension has to include a .gml and .dll file
  - The code is really janky
  - This tool only exports functions, no macros (yet)
- 
+# Known bugs
+- Sometimes, the functions get fancy " symbols when you import the extension to GameMaker. Have fun removing them.
+
  # How to use (Live demo for you)
 ##  Step 1: Getting started
  First, get the extension downloaded and unzipped. I am going to use an extension called GMMovie. 
