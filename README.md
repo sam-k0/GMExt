@@ -8,7 +8,7 @@ Because:
  - The code is really janky
  - This tool only exports functions, no macros (yet)
 # Known bugs
-- Sometimes, the functions get fancy " symbols when you import the extension to GameMaker. Have fun removing them.
+- Sometimes, the functions get fancy " symbols when you import the extension to GameMaker. Have fun removing them. -> Fixed
 
  # How to use (Live demo for you)
 ##  Step 1: Getting started
