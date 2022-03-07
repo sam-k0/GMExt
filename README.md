@@ -38,7 +38,7 @@ After starting, the tool will request two inputs from you:
  
  ![enter image description here](https://raw.githubusercontent.com/sam-k0/gmext/master/readmeimg/image4.jpg?token=GHSAT0AAAAAABKIPFIXR35SOZ2UBR5PIND2YRPJWUA)
  
- - The `extension name` is the name of the extension, I like to give it the same name as the DLL file, except for the .dll part.
+ - The `extension name` is the name of the .gml file without the .gml.
  - The `DLL file name` is the name of the dll file in your folder. 
  Press Enter to continue
  ## Step 5: Final touches
