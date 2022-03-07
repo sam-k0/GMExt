@@ -87,8 +87,8 @@ def handleApiInit(lines):
             elif(c == ')' and step == 6): # done
                 #print(json.dumps(argsTypeList))
                 #done
-                finishDict['name'] = _funcname.replace("'", "")
-                finishDict['externalName'] = _funcname.replace("'","")
+                finishDict['name'] = _funcname.replace("'", '').replace('"','')
+                finishDict['externalName'] = _funcname.replace("'",'').replace('"','')
                 # get calltype to new format 11 = stdcall, 12 = cdecl
                 if("dll_stdcall" in _calltype):
                     finishDict['kind'] = 11
