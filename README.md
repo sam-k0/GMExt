@@ -8,7 +8,9 @@ Because:
  - The code is really janky
  - This tool only exports functions, no macros (yet)
 # Known bugs
-- Sometimes, the functions get fancy " symbols when you import the extension to GameMaker. Have fun removing them. -> Fixed
+- Sometimes, the functions get fancy " symbols when you import the extension to GameMaker. Have fun removing them.
+- Above Bug is fixed in script, the binary .exe release is behind. I generally advise to use the .py scripts instead of .exe
+
 
  # How to use (Live demo for you)
 ##  Step 1: Getting started
