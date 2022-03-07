@@ -29,7 +29,7 @@ def unsusLines(input):
     return newlines;
 
 def getApiInitChunk(inlines):
-    END_SECTION_KEYWORD = "#define API_Define_Styles"
+    END_SECTION_KEYWORD = input("End Section Keyword (Including #define): ")#"#define API_Define_Styles"
     userInp = input("Section start keyword (Including #define ): ")
     START_SECTION_KEYWORD = userInp #"#define API_Init"
     newlist = []
@@ -137,6 +137,9 @@ def handleApiInit(lines):
 
             elif(step == 6):# read args to current buffer
                 # catch ","
+                #if(int(_numArgs) == 0): # for no args
+                #    continue
+
                 if(c != ","):
                     currArgBuf += c
                     # ty_string = 1, ty_real = 2
