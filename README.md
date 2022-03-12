@@ -53,6 +53,7 @@ After starting, the tool will request two inputs from you:
  The tool will ask you to provide the section start keyword (more like sentence, lol).
  Paste the **exact** line there. It needs this to know where to start reading.
  Now if you press Enter, you should see a *.gmez file in the `output` folder!
+ **UPDATE**: The End-Section keyword is also required now!
  
  ![enter image description here](https://raw.githubusercontent.com/sam-k0/gmext/master/readmeimg/image5.jpg?token=GHSAT0AAAAAABKIPFIWCRNNQTBKXMM6ICA4YRPJ23Q)
 
