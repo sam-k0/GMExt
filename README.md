@@ -10,7 +10,11 @@ Because:
 # Known bugs
 - Sometimes, the functions get fancy " symbols when you import the extension to GameMaker. Have fun removing them.
 - Above Bug is fixed in script, the binary .exe release is behind. I generally advise to use the .py scripts instead of .exe
-
+# Required python modules
+```python
+json
+xmltodict
+```
 
  # How to use (Live demo for you)
 ##  Step 1: Getting started
